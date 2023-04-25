@@ -1,3 +1,5 @@
+import Calculator from "./asset/js/calculator"
+import './style.css'
 class TodoList {
   constructor() {
     this.root = document.getElementById("app")
@@ -116,23 +118,22 @@ class TodoList {
     }
   }
   handleAdd() {
-    console.log(this.inputTime.value);
-    // if (this.validateInputTodo()) {
-    //   const payload = {
-    //     uuid: Math.random(),
-    //     checked: false,
-    //     value: this.inputTodo.value,
-    //     start: new Date(),
-    //     end: ''
-    //   }
-    //   this.todoList.push(payload)
-    //   this.renderList()
-    //   this.handleFocusAndClearText()
-    // }
-    // else {
-    //   alert("type text pls!!!")
-    //   this.handleFocusAndClearText()
-    // }
+    if (this.validateInputTodo()) {
+      const payload = {
+        uuid: Math.random(),
+        checked: false,
+        value: this.inputTodo.value,
+        start: new Date(),
+        end: ''
+      }
+      this.todoList.push(payload)
+      this.renderList()
+      this.handleFocusAndClearText()
+    }
+    else {
+      alert("type text pls!!!")
+      this.handleFocusAndClearText()
+    }
   }
   handleFocusAndClearText() {
     this.inputTodo.value = ''
@@ -173,3 +174,5 @@ class TodoList {
 }
 
 var todo = new TodoList()
+
+var calculator = new Calculator()
